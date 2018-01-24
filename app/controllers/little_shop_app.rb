@@ -5,8 +5,8 @@ class LittleShopApp < Sinatra::Base
     erb :"merchants/index"
   end
 
-  delete '/merchants/:id' do |id|
-    Merchant.find(id).destroy
+  delete '/merchants/:id' do
+    Merchant.find(params[:id]).destroy
     redirect '/merchants'
   end
 
