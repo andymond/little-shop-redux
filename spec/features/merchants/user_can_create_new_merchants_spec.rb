@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe 'as a user' do
   it 'can create a new merchant' do
     visit '/merchants/new'

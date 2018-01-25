@@ -1,0 +1,7 @@
+<h3> Edit <%= @merchant.name %></h3>
+
+<form action="/merchants/<%= @merchant.id %>" method=post>
+  <input type='hidden' name='_method' value='PUT' />
+  <input type='text' name='merchant[name]' placeholder="<%= @merchant.name %>"/></br>
+  <input type='submit' value='Submit'/>
+</form>
