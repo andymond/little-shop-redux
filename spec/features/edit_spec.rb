@@ -4,7 +4,6 @@ describe "Edit" do
 
     visit "/merchants/#{merchant.id}/edit"
     fill_in "merchant[name]", with: "GuitarPpl"
-    save_and_open_page
     click_on "Submit"
 
     expect(page).to have_content("GuitarPpl")
