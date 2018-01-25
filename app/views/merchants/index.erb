@@ -7,16 +7,20 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <h1>Town Bizzare</h1>
-    <% @merchants.each do |merchant| %>
-      <div>
-        <p><%= merchant.name %></p>
-        <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
-        <form action="/items/<%= merchant.id %>" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <input class='buttons' type="submit" value="delete"/>
-        </form>
-      </div>
-    <% end %>
+    <header>
+      <h1>Town Bizzare</h1>
+    </header>
+    <section class="marketplace">
+      <% @merchants.each do |merchant| %>
+        <div>
+          <p><%= merchant.name %></p>
+          <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
+          <form action="/items/<%= merchant.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class='buttons' type="submit" value="delete"/>
+          </form>
+        </div>
+      <% end %>
+    </section>
   </body>
 </html>

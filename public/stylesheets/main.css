@@ -3,6 +3,18 @@ body {
   text-align: center;
   background-color: black;
   color: lime;
+}
+
+header {
+  height: 100px
+}
+
+div {
+  overflow: scroll;
+  margin: 10px;
+}
+
+.marketplace {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20% 20%;
