@@ -12,8 +12,9 @@ describe "Index" do
     it "deletes a given merchant by its id" do
       Merchant.create(name: 'Bojangles')
       visit '/merchants'
+      click_on "delete"
 
-      save_and_open_page
+      expect(page).to_not have_content("Bojangles")
     end
   end
 end
