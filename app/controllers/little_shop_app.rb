@@ -15,10 +15,6 @@ class LittleShopApp < Sinatra::Base
     redirect '/merchants'
   end
 
-
-
-
-
   get '/merchants/new' do
     erb :"merchants/new"
   end
