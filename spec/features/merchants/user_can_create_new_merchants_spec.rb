@@ -1,7 +1,5 @@
-require 'spec_helper'
-
 describe 'as a user' do
-  it 'i can create a new merchant' do
+  it 'can create a new merchant' do
     visit '/merchants/new'
 
     fill_in "merchant[name]",	with: "Pepsi"
