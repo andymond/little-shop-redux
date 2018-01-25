@@ -9,14 +9,14 @@
   <body>
     <h1>Town Bizzare</h1>
     <% @merchants.each do |merchant| %>
-     <ul>
-      <p><%= merchant.name %></p>
-      <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
-      <form action="/items/<%= merchant.id %>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input class='buttons' type="submit" value="delete"/>
-      </form>
-     </ul>
+      <div>
+        <p><%= merchant.name %></p>
+        <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
+        <form action="/items/<%= merchant.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input class='buttons' type="submit" value="delete"/>
+        </form>
+      </div>
     <% end %>
   </body>
 </html>
