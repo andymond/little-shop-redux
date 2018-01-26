@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Items</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <h3> Edit <%= @item.title %></h3>
+
+    <form action="/items/<%= @item.id %>" method=post>
+      <input type='hidden' name='_method' value='PUT' />
+      <label for="item_name">Enter a new item title:</label></br>
+      <input type='text' name='item[title]' id="item_title" placeholder="<%= @item.title %>"/></br></br>
+      <input class='buttons' type='submit' value='Submit'/>
+    </form>
+  </body>
+</html>
