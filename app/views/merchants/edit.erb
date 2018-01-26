@@ -7,12 +7,17 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <h3> Edit <%= @merchant.name %></h3>
-
+    <header>
+      <h3> Edit <%= @merchant.name %></h3>
+    </header>
+    <nav>
+      <a href="#">Back to Bizzare</a>
+      <input type="text" placeholder="find a merchant">
+    </nav>
     <form action="/merchants/<%= @merchant.id %>" method=post>
       <input type='hidden' name='_method' value='PUT' />
       <label for="merchant_name">Enter a new merchant name:</label></br>
-      <input type='text' name='merchant[name]' id="merchant_name" placeholder="new name"/></br></br>
+      <input type='text' name='merchant[name]' id="merchant_name" placeholder='<% @merchant.name %>'/></br></br>
       <input class='buttons' type='submit' value='Submit'/>
     </form>
   </body>
