@@ -1,10 +1,26 @@
-<% @merchants.each do |merchant| %>
- <ul>
-  <li><%= merchant.name %></li>
-  <a href="/merchants/<%= merchant.id  %>/edit">Edit</a>
-  <form action="/items/<%= merchant.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
- </ul>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Merchants Index</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Town Bizzare</h1>
+    </header>
+    <section class="marketplace">
+      <% @merchants.each do |merchant| %>
+        <div>
+          <p><%= merchant.name %></p>
+          <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
+          <form action="/items/<%= merchant.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class='buttons' type="submit" value="delete"/>
+          </form>
+        </div>
+      <% end %>
+    </section>
+  </body>
+</html>
