@@ -43,6 +43,10 @@ class LittleShopApp < Sinatra::Base
     erb :"items/index"
   end
 
+  get '/items/new' do
+    erb :"items/new"
+  end
+
   get '/items/:id' do
     @item = Item.find(params[:id])
     erb :"items/show"
@@ -56,6 +60,11 @@ class LittleShopApp < Sinatra::Base
   put '/items/:id' do |id|
     Item.update(id.to_i, params[:item])
     redirect "/items/#{id}"
+  end
+
+  post '/items' do
+    Item.create(params[:item])
+    redirect '/items'
   end
 
 end
