@@ -34,14 +34,13 @@ describe "Actions" do
     end
   end
 
-
   describe "Index" do
     it "displays all merchants names" do
-      Merchant.create(name: 'Bojangles')
+      Merchant.create(name: 'Gruncle Stan')
       Merchant.create(name: 'Dinglemime')
       visit '/merchants'
 
-      expect(page).to have_content("Bojangles")
+      expect(page).to have_content("Gruncle Stan")
       expect(page).to have_content("Dinglemime")
     end
   end

@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20180125205513) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.text "title"
+    t.text "description"
+    t.integer "price"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "merchants", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false

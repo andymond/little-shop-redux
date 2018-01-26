@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head>
+      <meta charset="utf-8">
+      <title>Create New Items</title>
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+      <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+    </head>
+  </head>
+  <body>
+    <h3> Create New Item </h3>
+      <form action="/items" method="post">
+        <h4>Enter information for a new item:</h4>
+        <input type='text' name='item[title]' placeholder="Title"/><br/>
+        <input type='text' name='item[description]' placeholder="Item Description"/><br/>
+        <input type='text' name='item[price]' placeholder="Price"/><br/>
+        <input type='text' name='item[image]' placeholder="Image URL"/><br/>
+        <input type='submit' value="Submit"/>
+      </form>
+  </body>
+</html>
