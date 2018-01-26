@@ -7,9 +7,7 @@ describe "a user navigates to items edit page" do
                   image: 'https://i.ytimg.com/vi/LsRTtjqmn0I/maxresdefault.jpg')
       visit "/items/#{item.id}/edit"
 
-      save_and_open_page
       fill_in "item[title]", with: "Different Face Rock"
-
       click_on "Submit"
 
       expect(page).to have_content("Different Face Rock")
