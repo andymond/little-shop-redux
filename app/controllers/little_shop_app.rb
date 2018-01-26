@@ -1,5 +1,9 @@
 class LittleShopApp < Sinatra::Base
 
+  get '/' do
+    erb :"merchants/homepage"
+  end
+
   get '/merchants' do
     @merchants = Merchant.all
     erb :"merchants/index"
