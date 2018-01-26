@@ -44,4 +44,10 @@ class LittleShopApp < Sinatra::Base
     erb :"items/show"
   end
 
+  put '/items/:id' do |id|
+    Item.update(id.to_i, params[:item])
+    redirect "/items/#{id}"
+  end
+
+
 end
