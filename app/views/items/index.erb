@@ -4,4 +4,8 @@
   <p><%= item.price %></p>
   <img src=<%= item.image %>>
   <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
+  <form action="/items/<%= merchant.id %>" method="POST" class="<%=item.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input class='buttons' type="submit" value="delete"/>
+  </form>
 <% end %>
