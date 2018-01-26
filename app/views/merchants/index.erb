@@ -15,7 +15,7 @@
         <div>
           <p><%= merchant.name %></p>
           <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
-          <form action="/items/<%= merchant.id %>" method="POST">
+          <form action="/merchants/<%= merchant.id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input class='buttons' type="submit" value="delete"/>
           </form>
