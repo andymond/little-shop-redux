@@ -1,7 +1,9 @@
 describe "a user navigates to the items create page" do
   describe "visit items/new" do
     it "user can create new items" do
-      visit "items/new"
+      visit "/items/new"
+
+      save_and_open_page
 
       fill_in "item[title]", with: "Grizzlycorn"
       fill_in "item[description]", with: "It's the unholy merging of a grizzly bear and a unicorn!"
@@ -13,4 +15,4 @@ describe "a user navigates to the items create page" do
       expect(page).to have_content("It's the unholy merging of a grizzly bear and a unicorn!")
     end
   end
-end 
+end
