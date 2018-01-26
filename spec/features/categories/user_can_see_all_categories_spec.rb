@@ -1,6 +1,6 @@
 describe "user can see all categories" do
-  context "when im on the index page" do
-    it "they can see all the categories" do
+  context "when I'm on the index page" do
+    it "I can see all the categories" do
       category_1 = Category.create(name: "Toys")
       category_2 = Category.create(name: "Supplies")
       category_3 = Category.create(name: "Clothing")

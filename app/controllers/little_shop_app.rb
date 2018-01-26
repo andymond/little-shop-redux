@@ -43,4 +43,13 @@ class LittleShopApp < Sinatra::Base
     erb :"categories/index"
   end
 
+  get '/categories/new' do
+    erb :"/categories/new"
+  end
+
+  post '/categories' do
+    Category.create(params[:category])
+    redirect '/categories'
+  end
+
 end
