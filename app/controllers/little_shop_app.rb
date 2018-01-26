@@ -62,6 +62,11 @@ class LittleShopApp < Sinatra::Base
     redirect "/items/#{id}"
   end
 
+  delete '/items/:id' do
+    Merchant.find(params[:id]).destroy
+    redirect '/items'
+  end
+
   post '/items' do
     Item.create(params[:item])
     redirect '/items'
