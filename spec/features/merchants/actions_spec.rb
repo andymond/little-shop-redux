@@ -34,7 +34,6 @@ describe "Actions" do
     end
   end
 
-
   describe "Index" do
     it "displays all merchants names" do
       Merchant.create(name: 'Bojangles')
