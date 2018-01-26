@@ -2,9 +2,7 @@ describe "a user navigates to the items create page" do
   describe "visit items/new" do
     it "user can create new items" do
       visit "/items/new"
-
-      save_and_open_page
-
+      
       fill_in "item[title]", with: "Grizzlycorn"
       fill_in "item[description]", with: "It's the unholy merging of a grizzly bear and a unicorn!"
       fill_in "item[price]", with: 500_000

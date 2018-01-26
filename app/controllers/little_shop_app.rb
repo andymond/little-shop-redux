@@ -63,7 +63,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   delete '/items/:id' do
-    Merchant.find(params[:id]).destroy
+    Item.find(params[:id]).destroy
     redirect '/items'
   end
 
