@@ -1,5 +1,5 @@
 <% @items.each do |item| %>
-  <p><%= item.title %></p>
+  <p><a href="/items/<%= item.id %>"><%= item.title %></a></p>
   <p><%= item.description %></p>
   <p><%= item.price %></p>
   <img src=<%= item.image %>>
