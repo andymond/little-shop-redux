@@ -10,8 +10,8 @@ header {
 }
 
 div {
-  overflow: scroll;
-  margin: 10px;
+  overflow: hidden;
+  margin: 10px auto;
 }
 
 .marketplace {
@@ -24,11 +24,18 @@ a {
   text-decoration: none;
 }
 
+input, select {
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px;
+  margin: 10px;
+}
+
 .buttons {
   background-color: blue;
   border-style: none;
+  font-size: 10px;
   color: silver;
-  padding: 10px;
+  padding: 5px;
   margin: 15px;
   cursor: pointer;
 }
@@ -39,4 +46,34 @@ a {
 
 input[type=submit]{
   font-family: 'Press Start 2P', cursive;
+}
+
+.marketinventory {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  height: 300px;
+  width: 300px;
+}
+
+.itemimage {
+  height: 75px;
+  width: 75px;
+}
+
+.itemname {
+  font-size:12px;
+}
+
+.description {
+  height: 70px;
+  overflow: scroll;
+  font-size: 10px;
+  color: white;
+}
+
+.description:hover {
+   color: magenta;
 }

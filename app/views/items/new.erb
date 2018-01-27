@@ -16,6 +16,11 @@
         <input type='text' name='item[description]' placeholder="Item Description"/><br/>
         <input type='text' name='item[price]' placeholder="Price"/><br/>
         <input type='text' name='item[image]' placeholder="Image URL"/><br/>
+        <select>
+          <% @merchants.each do |merchant| %>
+               <option value="merchant.id"> <%= merchant.name %></option>
+          <% end %>
+        </select>
         <input type='submit' value="Submit"/>
       </form>
   </body>
