@@ -90,7 +90,7 @@ class LittleShopApp < Sinatra::Base
     @category = Category.find(params[:id])
     erb :"categories/show"
   end
-  
+
   get '/categories/:id/edit' do
     @category = Category.find(params[:id])
     erb :"categories/edit"
@@ -100,6 +100,5 @@ class LittleShopApp < Sinatra::Base
     Category.update(id.to_i, params[:category])
     redirect "/categories/#{id}"
   end
-
 
 end
