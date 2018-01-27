@@ -1,0 +1,8 @@
+<h3>Edit Category</h3>
+
+<form action="/categories/<%= @category.id %>" method=post>
+  <input type='hidden' name='_method' value='PUT' />
+  <label for="category_name">Enter a new category name:</label></br>
+  <input type='text' name="category[name]" id="category_name" placeholder="<%= @category.name %>"/></br></br>
+  <input class='buttons' type='submit' value='Submit'/>
+</form>
