@@ -18,7 +18,9 @@ describe "a user can see stats for items" do
                   image: 'https://vignette.wikia.nocookie.net/gravityfalls/images/1/1e/S1e13_beavercorn.png/revision/latest?cb=20130405054024')
       visit '/items-dashboard'
 
-      expect(page).to have_content('Average Price Per Item: 240000')
+      save_and_open_page
+
+      expect(page).to have_content('Average Price of Items: 240000.0')
       expect(page).to have_content('Total Items: 3')
       expect(page).to have_content('Newest Item: Beevercorn')
       expect(page).to have_content('Oldest Item: Rock that looks like a face rock')

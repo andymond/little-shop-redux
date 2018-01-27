@@ -2,7 +2,6 @@ describe Item do
   describe "Validations" do
     context "invalid attributes" do
       it "is invalid without a title" do
-        # merchant1 = Merchant.create(name: "")
         item = Item.create(description: "It's the unholy merging of a grizzly bear and a unicorn!",
                            price: 500_000,
                            merchant_id: 5,
@@ -12,7 +11,6 @@ describe Item do
       end
 
       it "is invalid without a description" do
-        # mer = Merchant.create ...
         item = Item.create(title: "Grizzlycorn",
                            price: 500_000,
                            merchant_id: 1,
