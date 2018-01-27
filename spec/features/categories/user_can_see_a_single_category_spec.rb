@@ -5,7 +5,7 @@ describe "as a user I can see a single category" do
       category_2 = Category.create(name: "Food")
 
       visit "categories/#{category_2.id}"
-      save_and_open_page
+
       expect(page).to have_content("Food")
     end
   end
