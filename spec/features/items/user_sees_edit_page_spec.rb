@@ -4,6 +4,7 @@ describe "a user navigates to items edit page" do
       item = Item.create(title: 'Rock that looks like a face rock',
                   description: "It's a rock that looks like a face",
                   price: 200_000,
+                  merchant_id: 2,
                   image: 'https://i.ytimg.com/vi/LsRTtjqmn0I/maxresdefault.jpg')
       visit "/items/#{item.id}/edit"
 
