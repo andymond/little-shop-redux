@@ -1,10 +1,8 @@
 <h3>Category</h3>
 
-<p>
-  <%= @category.name %><br>
-  <a href="/categories/<%= @category.id %>/edit">Edit</a>
-    <form action="/items/<%= @category.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="delete"/>
-    </form>
-</p>
+<p><%= @category.name %><br></p>
+<a href="/categories/<%= @category.id %>/edit">Edit</a>
+<form action="/categories/<%= @category.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete"/>
+</form>
