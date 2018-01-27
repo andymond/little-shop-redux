@@ -15,14 +15,14 @@ describe Item do
         # mer = Merchant.create ...
         item = Item.create(title: "Grizzlycorn",
                            price: 500_000,
-                           # merchant_id: 1,
+                           merchant_id: 1,
                            image: 'https://ih1.redbubble.net/image.11311357.5033/flat,800x800,075,f.jpg')
 
         expect(item).to_not be_valid
       end
       it "is invalid without a price" do
         item = Item.create(title: "Grizzlycorn",
-                           # merchant_id: 1,
+                           merchant_id: 1,
                            description: "It's the unholy merging of a grizzly bear and a unicorn!",
                            image: 'https://ih1.redbubble.net/image.11311357.5033/flat,800x800,075,f.jpg')
 
