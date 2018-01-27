@@ -1,0 +1,9 @@
+<a href="/items">All Items</a>
+<a href="/merchants">All Merchants</a>
+
+<div class="dashboard">
+  <h2>Total Items: <%= @items.count %> </h2>
+  <h2>Average Price of Items: <%= @items.average(:price) %> </h2>
+  <h2>Newest Item: <%= @items.last.title %> </h2>
+  <h2>Oldest Item: <%= @items.first.title %> </h2>
+</div>

@@ -101,4 +101,9 @@ class LittleShopApp < Sinatra::Base
     redirect "/categories/#{id}"
   end
 
+  get '/items-dashboard' do
+    @items = Item.all
+    erb :"items/dashboard"
+  end
+
 end
