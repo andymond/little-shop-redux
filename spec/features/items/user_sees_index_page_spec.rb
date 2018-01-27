@@ -16,7 +16,6 @@ describe "a user navigates to the items index page" do
       expect(page).to have_content("It's a rock that looks like a face")
       expect(page).to have_content("20000")
       expect(page).to have_content("A hairy bipedal animal with tighty whiteys and a sassy disposition")
-   save_and_open_page
     end
   end
 end
