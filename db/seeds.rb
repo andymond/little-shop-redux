@@ -1,5 +1,6 @@
 require 'csv'
 require './app/models/merchant.rb'
+require './app/models/item.rb'
 
 Merchant.destroy_all
 Item.destroy_all
@@ -15,7 +16,7 @@ end
 items = CSV.open './data/items.csv', headers: true, header_converters: :symbol
 items.each do |row|
 Item.create(id: row[:id],
-            name: row[:name],
+            title: row[:name],
             description: row[:description],
             price: row[:unit_price],
             updated_at: row[:updated_at],

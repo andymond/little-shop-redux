@@ -86,4 +86,19 @@ class LittleShopApp < Sinatra::Base
     redirect '/categories'
   end
 
+  get '/categories/:id/edit' do
+    @category = Category.find(params[:id])
+    erb :"categories/edit"
+  end
+
+  put '/categories/:id' do |id|
+    Category.update(id.to_i, params[:category])
+    redirect "/categories/#{id}"
+  end
+
+  get '/categories/:id' do
+    @category = Category.find(params[:id])
+    erb :"categories/show"
+  end
+
 end
