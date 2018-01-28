@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title> <%= @item.title %> </title>
+
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
@@ -12,5 +13,9 @@
     <li><%= @item.price %></li>
     <li><%= @item.description %></li>
     <a class='buttons' href="/items/<%= @item.id  %>/edit">Edit</a>
+    <form action="/items/<%= @item.id %>" method="POST" id="item<%= @item.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input class='buttons' type="submit" value="delete"/>
+    </form>
   </body>
 </html>

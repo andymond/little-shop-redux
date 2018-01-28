@@ -7,13 +7,17 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <h3> Edit <%= @item.title %></h3>
+    <h3> Edit <%= @item.title %> </h3>
 
     <form action="/items/<%= @item.id %>" method=post>
       <input type='hidden' name='_method' value='PUT' />
-      <label for="item_name">Enter a new item title:</label></br>
+      <label for="item_name">Edit Item Information:</label></br>
       <input type='text' name='item[title]' id="item_title" placeholder="<%= @item.title %>"/></br></br>
+      <textarea name='item[description]' id="item_description" placeholder="<%= @item.description %>"></textarea></br></br>
+      <input type='number' name='item[price]' id="item_price" placeholder="<%= @item.price %>"/></br></br>
+      <input type='text' name='item[image]' id="item_title" placeholder="Image URL"/></br></br>
       <input class='buttons' type='submit' value='Submit'/>
     </form>
+
   </body>
 </html>
