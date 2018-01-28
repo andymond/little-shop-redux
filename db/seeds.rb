@@ -1,9 +1,19 @@
 require 'csv'
 require './app/models/merchant.rb'
 require './app/models/item.rb'
+require './app/models/category.rb'
 
 Merchant.destroy_all
 Item.destroy_all
+Category.destroy_all
+
+categories = CSV.open './data/categories.csv', headers: true, header_converters: :symbol
+categories.each do |row|
+  Category.create(id: row[:id],
+                  name: row[:name],
+                  updated_at: row[:updated_at],
+                  created_at: row[:created_at])
+end
 
 merchants = CSV.open './data/merchants.csv', headers: true, header_converters: :symbol
 merchants.each do |row|
