@@ -3,8 +3,13 @@ class Category < ActiveRecord::Base
   has_many :items
 
   def avg_price
-    items.map do |item|
-      item.price
-    end.sum / items.count
+    if items.count != 0
+      items.map do |item|
+        item.price
+      end.sum / items.count
+    else
+      0
+    end
   end
+
 end
