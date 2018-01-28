@@ -11,8 +11,12 @@
       <h1>Categories Dashboard</h1>
     </header>
     <p>Average Price of Item by Category:</p>
+      <% @categories.each do |category| %>
+       <p> <%= category.name %>: $<%= category.avg_price.to_s.insert(-3, ".") %></p>
+      <% end %>
     <p>Category with Most Expensive Item:</p>
+      <%= @items.find_by(price: @items.maximum(:price)).category.name%>
     <p>Category with Least Expensive Item:</p>
-
+      <%= @items.find_by(price: @items.minimum(:price)).category.name%>
   </body>
 </html>

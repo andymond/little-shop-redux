@@ -34,3 +34,14 @@ Item.create(id: row[:id],
             merchant_id: row[:merchant_id],
             image: 'https://openclipart.org/image/2400px/svg_to_png/227732/Potion.png')
 end
+
+created_items = Item.all
+created_items.each do |item|
+  if item.price > 10000
+    item.update(category_id: 1)
+  elsif item.price < 1000
+    item.update(category_id: 3)
+  else
+    item.update(category_id: 2)
+  end
+end

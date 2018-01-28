@@ -108,6 +108,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/categories-dashboard' do
     @categories = Category.all
+    @items = Item.all
     erb :"categories/dashboard"
   end
 
