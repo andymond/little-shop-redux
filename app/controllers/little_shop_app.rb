@@ -72,6 +72,11 @@ class LittleShopApp < Sinatra::Base
     redirect '/items'
   end
 
+  get '/items-dashboard' do
+    @items = Item.all
+    erb :"items/dashboard"
+  end
+
   get '/categories' do
     @categories = Category.all
     erb :"categories/index"
@@ -101,9 +106,10 @@ class LittleShopApp < Sinatra::Base
     redirect "/categories/#{id}"
   end
 
-  get '/items-dashboard' do
-    @items = Item.all
-    erb :"items/dashboard"
+  get '/categories-dashboard' do
+    @categories = Category.all
+    erb :"categories/dashboard"
   end
+
 
 end
