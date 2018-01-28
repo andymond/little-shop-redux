@@ -107,4 +107,10 @@ class LittleShopApp < Sinatra::Base
     erb :"items/dashboard"
   end
 
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    @items = Item.all
+    erb :"merchants/dashboard"
+  end
+
 end
