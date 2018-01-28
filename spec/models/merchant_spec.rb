@@ -23,7 +23,7 @@ describe Merchant do
         expect(merchant).to be_valid
       end
 
-      it "is valid if its unique" do
+      it "is valid if it is unique" do
         merchant_1 = Merchant.create(name: "Pepsi")
         merchant_2 = Merchant.create(name: "Coke")
 
