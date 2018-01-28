@@ -44,6 +44,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/new' do
+    @merchants = Merchant.all
     erb :"items/new"
   end
 
@@ -110,6 +111,12 @@ class LittleShopApp < Sinatra::Base
     @categories = Category.all
     @items = Item.all
     erb :"categories/dashboard"
+  end
+
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    @items = Item.all
+    erb :"merchants/dashboard"
   end
 
 

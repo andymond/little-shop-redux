@@ -1,11 +1,36 @@
-<% @items.each do |item| %>
-  <p><a href="/items/<%= item.id %>"><%= item.title %></a></p>
-  <p><%= item.description %></p>
-  <p><%= item.price %></p>
-  <img src=<%= item.image %>>
- <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
-  <form action="/items/<%= item.id %>" method="POST" id="item<%= item.id %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input class='buttons' type="submit" value="delete"/>
-  </form>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Item Index</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  </head>
+  <body>
+    <header>
+      <h1>Item Inventory</h1>
+      <p>Peruse All Available Wares</p>
+    </header>
+    <nav>
+      <a href="/merchants">Merchants</a>
+      <a href="/items/new">Create New Item</a>
+    </nav>
+    <section class="marketinventory">
+      <% @items.each do |item| %>
+      <div class="item">
+        <p class="itemname"><%= item.title %></p>
+        <img class="itemimage" src=<%= item.image %>>
+        <p class="description"><%= item.description %></p>
+        <p class="price"><%= item.price %></p>
+        <div class="modify">
+          <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
+          <form action="/items/<%= item.id %>" method="POST" id="item<%=item.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class='buttons' type="submit" value="delete"/>
+          </form>
+        </div>
+      </div>
+      <% end %>
+    </section>
+  </body>
+</html>
