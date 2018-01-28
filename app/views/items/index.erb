@@ -20,12 +20,14 @@
         <p class="itemname"><%= item.title %></p>
         <img class="itemimage" src=<%= item.image %>>
         <p class="description"><%= item.description %></p>
-        <p><%= item.price %></p>
-        <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
-        <form action="/items/<%= item.id %>" method="POST" id="item<%=item.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <input class='buttons' type="submit" value="delete"/>
-        </form>
+        <p class="price"><%= item.price %></p>
+        <div class="modify">
+          <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
+          <form action="/items/<%= item.id %>" method="POST" id="item<%=item.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class='buttons' type="submit" value="delete"/>
+          </form>
+        </div>
       </div>
       <% end %>
     </section>
