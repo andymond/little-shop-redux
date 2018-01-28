@@ -26,6 +26,8 @@ describe "a user can see the stats of merchants" do
                   image: 'something.jpg')
       visit '/merchants-dashboard'
 
+      save_and_open_page
+
       expect(page).to have_content('Merchant with the most items: Gruncle Stan')
       expect(page).to have_content('Merchant with the highest priced item: Gruncle Stan')
       expect(page).to have_content("Gruncle Stan's total items: 2")
@@ -36,4 +38,4 @@ describe "a user can see the stats of merchants" do
       expect(page).to have_content("Bojangles total price of items: 200")
     end
   end
-end 
+end
