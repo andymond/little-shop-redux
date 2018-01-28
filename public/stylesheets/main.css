@@ -9,6 +9,15 @@ header {
   height: 100px
 }
 
+nav a {
+  color: aquamarine;
+  margin: 10px 20px;
+}
+
+nav a:hover {
+  color: magenta;
+}
+
 div {
   overflow: hidden;
   margin: 10px auto;
@@ -42,10 +51,10 @@ select {
   color: gray;
   border: none;
   font-size: 12px;
-  height: 35px;
+  height: 30px;
   padding: 12px;
   margin: 10px;
-  width: 243px;
+  width: 240px;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
 }
