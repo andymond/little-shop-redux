@@ -9,9 +9,18 @@ header {
   height: 100px
 }
 
+nav a {
+  color: aquamarine;
+  margin: 10px 20px;
+}
+
+nav a:hover {
+  color: magenta;
+}
+
 div {
-  overflow: scroll;
-  margin: 10px;
+  overflow: hidden;
+  margin: 10px auto;
 }
 
 .marketplace {
@@ -20,15 +29,42 @@ div {
   grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
+.marketinventory {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 a {
   text-decoration: none;
+}
+
+input {
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+}
+
+select {
+  font-family: 'Press Start 2P', cursive;
+  background-color: white;
+  color: gray;
+  border: none;
+  font-size: 12px;
+  height: 30px;
+  padding: 12px;
+  margin: 10px;
+  width: 240px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
 }
 
 .buttons {
   background-color: blue;
   border-style: none;
+  font-size: 10px;
   color: silver;
-  padding: 10px;
+  padding: 5px;
   margin: 15px;
   cursor: pointer;
 }
@@ -39,4 +75,48 @@ a {
 
 input[type=submit]{
   font-family: 'Press Start 2P', cursive;
+}
+
+.modify {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.merchant_avatar {
+  height: 75px;
+  width: 75px;
+}
+
+.item {
+  height: 300px;
+  width: 300px;
+}
+
+.itemimage {
+  height: 75px;
+  width: 75px;
+}
+
+.itemname {
+  font-size:12px;
+  height: 35px;
+  overflow: scroll;
+  margin: 15px;
+}
+
+.description {
+  height: 70px;
+  overflow: scroll;
+  font-size: 10px;
+  color: white;
+}
+
+.description:hover {
+   color: magenta;
+}
+
+.price {
+  margin: 5px;
 }

@@ -11,17 +11,23 @@
       <h1>Town Bizzare</h1>
     </header>
     <nav>
+      <a href="/items">Item Inventory</a>
+      <a href="/categories">Categories</a>
       <input type="text" placeholder="find a merchant">
+      <input type="text" placeholder="find an item">
     </nav>
     <section class="marketplace">
       <% @merchants.each do |merchant| %>
         <div>
           <p><%= merchant.name %></p>
-          <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
-          <form action="/merchants/<%= merchant.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input class='buttons' type="submit" value="delete"/>
-          </form>
+          <img class="merchant_avatar" src="https://img00.deviantart.net/9d3d/i/2012/232/1/c/old_man_ver_2_by_dragonpjb-d5bti2i.png">
+          <div class="modify">
+            <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
+            <form action="/merchants/<%= merchant.id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input class='buttons' type="submit" value="delete"/>
+            </form>
+          </div>
         </div>
       <% end %>
     </section>
