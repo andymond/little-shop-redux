@@ -14,6 +14,7 @@
       <% merchant = @items.group(:merchant_id).order('count(*)DESC').pluck(:merchant_id).first %>
       <h2>Merchant with the most items: <%= @merchants.find_by(id: merchant).name %> </h2>
       <h2>Merchant with the highest priced item: <%= @items.find_by(price: (@items.maximum(:price))).merchant.name %></h2>
+
       <% @merchants.each do |merchant| %>
         <% merc_total_price = merchant.items.map(&:price).sum %>
         <h2> <%= merchant.name %> total items: <%= merchant.items.count %> </h2>
