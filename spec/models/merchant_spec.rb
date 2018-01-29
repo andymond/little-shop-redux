@@ -32,4 +32,33 @@ describe Merchant do
       end
     end
   end
+  describe "Instance Methods" do
+    it "returns total items" do
+      merchant = Merchant.create(name: 'DoopDoot')
+      merchant.items.create(title: "Doot",
+                            description: "DoopDoot's doot",
+                            price: 5000,
+                            image: 'heya.jpg')
+      merchant.items.create(title: "Doop",
+                            description: "DoopDoot's doop",
+                            price: 5000,
+                            image: 'heya.jpg')
+
+      expect(merchant.total_items).to eq(2)
+    end
+
+    it "returns total price of items" do
+      merchant = Merchant.create(name: 'DoopDoot')
+      merchant.items.create(title: "Doot",
+                            description: "DoopDoot's doot",
+                            price: 5000,
+                            image: 'heya.jpg')
+      merchant.items.create(title: "Doop",
+                            description: "DoopDoot's doop",
+                            price: 5000,
+                            image: 'heya.jpg')
+
+      expect(merchant.total_items_price).to eq(10000)
+    end
+  end
 end
