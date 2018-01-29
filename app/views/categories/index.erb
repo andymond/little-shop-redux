@@ -1,14 +1,30 @@
-<h3>Categories</h3>
-
-
-<% @categories.each do |category| %>
-<p>
-  <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
-  <a href="/categories/<%= category.id  %>/edit">Edit</a>
-  <form action="/categories/<%= category.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Category</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h3>Categories</h3>
+    </header>
+    <nav>
+      <a href="/merchants">Merchants</a>
+      <a href="/items/new">Create New Item</a>
+    </nav>
+    <section>
+      <% @categories.each do |category| %>
+      <div>
+        <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
+        <a class="buttons" href="/categories/<%= category.id  %>/edit">Edit</a>
+        <form action="/categories/<%= category.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input class="buttons" type="submit" value="delete"/>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
 <% end %>
-
