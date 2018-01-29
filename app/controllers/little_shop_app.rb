@@ -124,9 +124,10 @@ class LittleShopApp < Sinatra::Base
     if params[:q] == ""
       @query = nil
     else
-      @query = [Category.where(name: params[:q]),
-                Merchant.where(name: params[:q]),
-                Item.where(title: params[:q])]
+      @query = [Category.where("lower(name) LIKE ?", "%#{params[:q].downcase}%"),
+                Merchant.where("lower(name) LIKE ?", "%#{params[:q].downcase}%"),
+                Item.where("lower(title) LIKE ?", "%#{params[:q].downcase}%"),
+               ]
 
       @categories = @query[0]
       @merchants = @query[1]
