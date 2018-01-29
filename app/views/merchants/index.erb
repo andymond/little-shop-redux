@@ -29,7 +29,7 @@
           <img class="merchant_avatar" src="https://img00.deviantart.net/9d3d/i/2012/232/1/c/old_man_ver_2_by_dragonpjb-d5bti2i.png">
           <div class="modify">
             <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
-            <form action="/merchants/<%= merchant.id %>" method="POST">
+            <form action="/merchants/<%= merchant.id %>" method="POST" id="merchant<%= merchant.id %>">
               <input type="hidden" name="_method" value="DELETE">
               <input class='buttons' type="submit" value="delete"/>
             </form>
