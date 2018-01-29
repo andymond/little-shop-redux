@@ -15,6 +15,15 @@
       <a href="/categories">Categories</a>
       <input type="text" placeholder="find a merchant">
       <input type="text" placeholder="find an item">
+
+      <div class="search-container">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+
     </nav>
     <section class="marketplace">
       <% @merchants.each do |merchant| %>
