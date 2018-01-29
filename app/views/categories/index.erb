@@ -1,7 +1,7 @@
 <h3>Categories</h3>
 
 
-<% @categories.each do |category| %>
+<% @categories.order("name").each do |category| %>
 <p>
   <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
   <a href="/categories/<%= category.id  %>/edit">Edit</a>

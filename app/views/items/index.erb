@@ -16,8 +16,9 @@
       <a href="/items/new">Create New Item</a>
     </nav>
     <section class="marketinventory">
-      <% @items.each do |item| %>
+      <% @items.order("title").each do |item| %>
       <div class="item">
+      <a href="/items/<%= item.id %>" class="item-link"><p><%= item.title %></p></a>
         <p class="itemname"><%= item.title %></p>
         <img class="itemimage" src=<%= item.image %>>
         <p class="description"><%= item.description %></p>
