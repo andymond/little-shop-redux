@@ -11,9 +11,8 @@
     <a href="/merchants">All Merchants</a>
 
     <div class="dashboard">
-      <% merchant = @items.group(:merchant_id).order('count(*)DESC').pluck(:merchant_id).first %>
-      <h2>Merchant with the most items: <%= @merchants.find_by(id: merchant).name %> </h2>
-      <h2>Merchant with the highest priced item: <%= @items.find_by(price: (@items.maximum(:price))).merchant.name %></h2><br />
+      <h2>Merchant with the most items: <%= @items.merchant_with_most_items.name %> </h2>
+      <h2>Merchant with the highest priced item: <%= @items.merchant_with_highest_priced_item.name %></h2><br />
 
       <% @merchants.each do |merchant| %>
         <% merc_total_price = merchant.items.map(&:price).sum %>
