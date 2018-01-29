@@ -120,5 +120,4 @@ class LittleShopApp < Sinatra::Base
     erb :"merchants/dashboard"
   end
 
-
 end
