@@ -1,5 +1,5 @@
 describe "a user navigates to the items create page" do
-  describe "visit items/new" do
+  describe "visit /items/new" do
     it "user can create new items" do
       merchant = Merchant.create(name: "ChimeraDealer")
       visit "/items/new"
