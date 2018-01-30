@@ -45,7 +45,7 @@
       </div>
     </nav>
     <section class="marketplace">
-      <% @merchants.order("name").each do |merchant| %>
+      <% @merchants.each do |merchant| %>
         <div class="merchant">
           <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a>
           <img class="merchant_avatar" src="https://img00.deviantart.net/9d3d/i/2012/232/1/c/old_man_ver_2_by_dragonpjb-d5bti2i.png">
