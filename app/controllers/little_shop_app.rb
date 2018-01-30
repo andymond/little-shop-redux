@@ -141,4 +141,9 @@ class LittleShopApp < Sinatra::Base
     erb :"/search"
   end
 
+	not_found do
+	  status 404
+	  erb :not_found
+  end
+
 end
