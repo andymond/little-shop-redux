@@ -11,27 +11,49 @@
       <h1>Town Bizzare</h1>
     </header>
     <nav>
-      <a href="/items">Item Inventory</a>
-      <a href="/categories">Categories</a>
-
-      <div class="search-container">
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
         <form action="/search" method="GET">
           <input type="text" placeholder="Search.." name="q">
           <button type="submit">Submit</button>
         </form>
       </div>
-
     </nav>
     <section class="marketplace">
       <% @merchants.order("name").each do |merchant| %>
-        <div>
-         <a href="/merchants/<%= merchant.id %>" class="merchant-link"><p><%= merchant.name %></p></a>
+        <div class="merchant">
+          <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a>
           <img class="merchant_avatar" src="https://img00.deviantart.net/9d3d/i/2012/232/1/c/old_man_ver_2_by_dragonpjb-d5bti2i.png">
           <div class="modify">
             <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
             <form action="/merchants/<%= merchant.id %>" method="POST" id="merchant<%= merchant.id %>">
               <input type="hidden" name="_method" value="DELETE">
-              <input class='buttons' type="submit" value="delete"/>
+              <input class='buttons' type="submit" value="Delete"/>
             </form>
           </div>
         </div>

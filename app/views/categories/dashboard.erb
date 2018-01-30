@@ -10,13 +10,46 @@
     <header>
       <h1>Categories Dashboard</h1>
     </header>
-    <p>Average Price of Item by Category:</p>
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
+    </nav>
+    <section class="show">
+      <p>Average Price of Item by Category:</p>
         <% @categories.each do |category| %>
          <p> <%= category.name %>: $<%= '%.2f' % (category.avg_price/100.0) %></p>
         <% end %>
-    <p>Category with Most Expensive Item:</p>
-      <%= @items.find_by(price: @items.maximum(:price)).category.name%>
-    <p>Category with Least Expensive Item:</p>
-      <%= @items.find_by(price: @items.minimum(:price)).category.name%>
+      <p>Category with Most Expensive Item:</p>
+        <%= @items.find_by(price: @items.maximum(:price)).category.name%>
+      <p>Category with Least Expensive Item:</p>
+        <%= @items.find_by(price: @items.minimum(:price)).category.name%>
+    </section>
   </body>
 </html>
