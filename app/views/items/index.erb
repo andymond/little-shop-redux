@@ -50,7 +50,7 @@
       <div class="item">
         <a href="/items/<%= item.id %>" class="itemname"><%= item.title %></a>
         <img class="itemimage" src=<%= item.image %>>
-        <p class="description"><%= item.description %></p>
+        <p class="description"><%= item.description[0..75] %>...</p>
         <p class="price">$<%='%.2f' % (item.price/100.0) %></p>
         <div class="modify">
           <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
