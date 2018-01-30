@@ -10,4 +10,4 @@ test:
 
 production:
   adapter: postgresql
-  database: little-shop-production
+  database: DATABASE_URL
