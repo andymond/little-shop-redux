@@ -37,8 +37,11 @@
             </div>
       </div>
       </div>
-      <div class="search_bar">
-         <input type="search" name="search" placeholder="search..">
+       <div class="search_bar">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </nav>
     <h4>Peruse All Available Wares</h4>
