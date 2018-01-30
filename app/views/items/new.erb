@@ -52,13 +52,13 @@
         <input type='text' name='item[image]' placeholder="Image URL"/><br/>
         <select id="merchant_select" name="item[merchant_id]">
           <option selected disabled>Choose A Merchant</option>
-          <% @merchants.each do |merchant| %>
+          <% @merchants.order(:name).each do |merchant| %>
                <option id="<%= merchant.name %>" value="merchant.id"> <%= merchant.name %></option>
           <% end %>
         </select><br/>
         <select id="category_select" name="item[category_id]">
           <option selected disabled>Choose A Category</option>
-          <% @categories.each do |category| %>
+          <% @categories.order(:name).each do |category| %>
                <option id="<%= category.name %>" value="category.id"> <%= category.name %></option>
           <% end %>
         </select><br/>
