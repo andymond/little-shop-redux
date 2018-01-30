@@ -145,7 +145,8 @@ input[type=submit]{
 
 .description {
   height: 70px;
-  overflow: scroll;
+  /* text-overflow: ellipsis; */
+  overflow: hidden;
   font-size: 10px;
   color: white;
 }
@@ -241,4 +242,9 @@ nav button {
     justify-content: space-between;
     width: 60%;
     padding: 30px;
+}
+
+section.categoryplace {
+  display: flex;
+  flex-wrap: wrap;
 }
