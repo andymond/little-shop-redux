@@ -59,5 +59,16 @@
         </div>
       <% end %>
     </section>
+
+    <div class="pagination">
+      <div class="digg-pagination">
+        <div class="page-info">
+          <%= page_entries_info @merchants %>
+        </div>
+        <div class="pagination-numbers">
+        <%= will_paginate @merchants, :container => false %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
