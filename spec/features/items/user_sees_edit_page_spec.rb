@@ -13,10 +13,10 @@ describe "a user navigates to items edit page" do
       fill_in "item[price]", with: 300_000
       fill_in "item[image]", with: "https://vignette.wikia.nocookie.net/gravityfalls/images/d/d5/Pilot_The_Sascrotch.png/revision/latest?cb=20160803222628"
       click_on "Submit"
-
+      
       expect(page).to have_content("Different Face Rock")
       expect(page).to have_content("A Face that looks like a rock!!")
-      expect(page).to have_content("300000")
+      expect(page).to have_content("$3000.00")
       expect(page).to have_xpath("//img[contains(@src,'https://vignette.wikia.nocookie.net/gravityfalls/images/d/d5/Pilot_The_Sascrotch.png/revision/latest?cb=20160803222628')]")
       expect(page).to_not have_content("Rock that looks like a face rock")
     end
