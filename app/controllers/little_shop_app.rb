@@ -95,6 +95,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/categories/:id' do
     @category = Category.find(params[:id])
+    @items = Item.where(category_id: params[:id])
     erb :"categories/show"
   end
 

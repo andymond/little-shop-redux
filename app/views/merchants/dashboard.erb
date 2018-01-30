@@ -6,18 +6,55 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
+  <header>
+    <h1>Merchant Dashboard</h1>
+  </header>
   <body>
-    <a href="/items">All Items</a>
-    <a href="/merchants">All Merchants</a>
-
-    <div class="dashboard">
-      <h2>Merchant with the most items: <%= @items.merchant_with_most_items.name %> </h2>
-      <h2>Merchant with the highest priced item: <%= @items.merchant_with_highest_priced_item.name %></h2><br />
-
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
+    </nav>
+    <section class="show">
+      <% merchant = @items.group(:merchant_id).order('count(*)DESC').pluck(:merchant_id).first %>
+      <p>Merchant with the most items: <%= @merchants.find_by(id: merchant).name %></p>
+      <p>Merchant with the highest priced item: <%= @items.find_by(price: (@items.maximum(:price))).merchant.name %></p>
+    </section>
+    <section class="marketplace">
       <% @merchants.each do |merchant| %>
-        <h2> <%= merchant.name %> total items: <%= merchant.total_items %> </h2>
-        <h2> <%= merchant.name %> total price of items: <%= merchant.total_items_price %> </h2><br />
+        <div class="merchant_stats">
+          <% merc_total_price = merchant.items.map(&:price).sum %>
+          <p><%= merchant.name %></p>
+          <p>Total items: <%= merchant.items.count %> </p>
+          <p>Total price of items: <%= merc_total_price %></p>
+        </div>
       <% end %>
-    </div>
+    </section>
   </body>
 </html>

@@ -8,20 +8,47 @@
   </head>
   <body>
     <header>
-      <h1>Item Inventory</h1>
-      <p>Peruse All Available Wares</p>
+      <h1>Item Inventory</h1></br>
     </header>
     <nav>
-      <a href="/merchants">Merchants</a>
-      <a href="/items/new">Create New Item</a>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
     </nav>
+    <h4>Peruse All Available Wares</h4>
     <section class="marketinventory">
-      <% @items.each do |item| %>
+      <% @items.order("title").each do |item| %>
       <div class="item">
-        <p class="itemname"><%= item.title %></p>
+        <a href="/items/<%= item.id %>" class="itemname"><%= item.title %></a>
         <img class="itemimage" src=<%= item.image %>>
         <p class="description"><%= item.description %></p>
-        <p class="price"><%= item.price %></p>
+        <p class="price">$<%='%.2f' % (item.price/100.0) %></p>
         <div class="modify">
           <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
           <form action="/items/<%= item.id %>" method="POST" id="item<%=item.id %>">

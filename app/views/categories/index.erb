@@ -1,14 +1,59 @@
-<h3>Categories</h3>
-
-
-<% @categories.each do |category| %>
-<p>
-  <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
-  <a href="/categories/<%= category.id  %>/edit">Edit</a>
-  <form action="/categories/<%= category.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
-</p>
-<% end %>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Category</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h3>Categories</h3>
+    </header>
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
+    </nav>
+    <section>
+      <% @categories.order("name").each do |category| %>
+      <div>
+        <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
+        <div class="modify">
+          <a class="buttons" href="/categories/<%= category.id  %>/edit">Edit</a>
+          <form action="/categories/<%= category.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class="buttons" type="submit" value="Delete"/>
+          </form>
+        </div>
+      </div>
+      <% end %>
+    </section>
+  </body>
+</html>
