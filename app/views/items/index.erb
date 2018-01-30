@@ -43,7 +43,7 @@
     </nav>
     <h4>Peruse All Available Wares</h4>
     <section class="marketinventory">
-      <% @items.each do |item| %>
+      <% @items.order("title").each do |item| %>
       <div class="item">
         <a href="/items/<%= item.id %>" class="itemname"><%= item.title %></a>
         <img class="itemimage" src=<%= item.image %>>

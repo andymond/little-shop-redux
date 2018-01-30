@@ -121,5 +121,20 @@ class LittleShopApp < Sinatra::Base
     erb :"merchants/dashboard"
   end
 
+  get "/search" do
+    if params[:q] == ""
+      @query = nil
+    else
+      @query = [Category.where("lower(name) LIKE ?", "%#{params[:q].downcase}%"),
+                Merchant.where("lower(name) LIKE ?", "%#{params[:q].downcase}%"),
+                Item.where("lower(title) LIKE ?", "%#{params[:q].downcase}%"),
+               ]
+
+      @categories = @query[0]
+      @merchants = @query[1]
+      @items = @query[2]
+    end
+    erb :"/search"
+  end
 
 end
