@@ -176,7 +176,7 @@ nav {
   background-color: gray;
   opacity: 0.8;
   width: 100%;
-  min-width: 753px;
+  min-width: 885px;
 }
 
 .navlinks {
@@ -184,7 +184,7 @@ nav {
 }
 
 .search_bar {
-  margin: 0px 5px 0px auto;
+  margin: 0px 5px 0px 5px;
 }
 
 nav button {
@@ -241,4 +241,11 @@ nav button {
     justify-content: space-between;
     width: 60%;
     padding: 30px;
+}
+
+.not_found {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
