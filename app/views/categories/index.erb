@@ -42,7 +42,7 @@
       </div>
     </nav>
     <section>
-      <% @categories.order("name").each do |category| %>
+      <% @categories.each do |category| %>
       <div>
         <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
         <div class="modify">

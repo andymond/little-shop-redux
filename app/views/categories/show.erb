@@ -59,7 +59,17 @@
       <% end %>
     </section>
     <footer class="back">
-      <a href="/items">Back to Item Inventory</a>
+      <a href="/categories">Back to Categories</a>
     </footer>
+    <div class="pagination">
+      <div class="digg-pagination">
+        <div class="page-info">
+          <%= page_entries_info @items %>
+        </div>
+        <div class="pagination-numbers">
+        <%= will_paginate @items, :container => false %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

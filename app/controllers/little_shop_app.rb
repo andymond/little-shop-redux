@@ -9,7 +9,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants' do
-    @merchants = Merchant.paginate(:page => params[:page])
+    @merchants = Merchant.order("lower(name)").paginate(:page => params[:page])
     erb :"merchants/index"
   end
 
@@ -43,13 +43,13 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items' do
-    @items = Item.paginate(:page => params[:page])
+    @items = Item.order("lower(title)").paginate(:page => params[:page])
     erb :"items/index"
   end
 
   get '/items/new' do
-    @merchants = Merchant.all
-    @categories = Category.all
+    @merchants = Merchant.order("lower(name)").all
+    @categories = Category.order("lower(name)").all
     erb :"items/new"
   end
 
@@ -84,7 +84,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/categories' do
-    @categories = Category.all
+    @categories = Category.order("lower(name)").all
     erb :"categories/index"
   end
 
@@ -99,7 +99,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/categories/:id' do
     @category = Category.find(params[:id])
-    @items = Item.where(category_id: params[:id])
+    @items = Item.order("lower(title)").where(category_id: params[:id]).paginate(:page => params[:page])
     erb :"categories/show"
   end
 
