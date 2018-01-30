@@ -1,3 +1,10 @@
+.gate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
@@ -63,13 +70,14 @@ select {
   color: gray;
   border: none;
   font-size: 12px;
-  height: 30px;
   padding-left: 12px;
   margin: 10px;
+  height: 30px;
   width: 240px;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
 }
+
 
 .buttons {
   background-color: blue;
