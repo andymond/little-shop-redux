@@ -47,7 +47,7 @@
         <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
         <div class="modify">
           <a class="buttons" href="/categories/<%= category.id  %>/edit">Edit</a>
-          <form action="/categories/<%= category.id %>" method="POST">
+          <form action="/categories/<%= category.id %>" method="POST" id="category<%= category.id %>">
             <input type="hidden" name="_method" value="DELETE">
             <input class="buttons" type="submit" value="Delete"/>
           </form>
