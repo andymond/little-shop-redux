@@ -109,6 +109,15 @@ input[type=submit]{
   overflow-x: scroll;
 }
 
+.merchant_stats {
+  height: 100px;
+  width: 250px;
+  overflow-x: scroll;
+  font-size: 14px;
+  border: 1px dotted #FFFFFF;
+  padding-bottom: 10px;
+}
+
 .item {
   height: 300px;
   width: 300px;
@@ -157,17 +166,17 @@ nav {
   display: flex;
   margin-bottom: 25px;
   background-color: gray;
-  opacity: 0.7;
+  opacity: 0.8;
   width: 100%;
   min-width: 753px;
 }
 
 .navlinks {
-  margin-left: 0px;
+  margin: 0px auto 0px 5px;
 }
 
 .search_bar {
-  margin-right: 5px;
+  margin: 0px 5px 0px auto;
 }
 
 nav button {

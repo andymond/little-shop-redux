@@ -7,7 +7,7 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <header>
-    <h1>Merchant Stats</h1>
+    <h1>Merchant Dashboard</h1>
   </header>
   <body>
     <nav>
@@ -41,16 +41,20 @@
          <input type="search" name="search" placeholder="search..">
       </div>
     </nav>
-    <div class="dashboard">
+    <section class="show">
       <% merchant = @items.group(:merchant_id).order('count(*)DESC').pluck(:merchant_id).first %>
-      <h2>Merchant with the most items: <%= @merchants.find_by(id: merchant).name %> </h2>
-      <h2>Merchant with the highest priced item: <%= @items.find_by(price: (@items.maximum(:price))).merchant.name %></h2><br />
-
+      <p>Merchant with the most items: <%= @merchants.find_by(id: merchant).name %></p>
+      <p>Merchant with the highest priced item: <%= @items.find_by(price: (@items.maximum(:price))).merchant.name %></p>
+    </section>
+    <section class="marketplace">
       <% @merchants.each do |merchant| %>
-        <% merc_total_price = merchant.items.map(&:price).sum %>
-        <h2> <%= merchant.name %> total items: <%= merchant.items.count %> </h2>
-        <h2> <%= merchant.name %> total price of items: <%= merc_total_price %> </h2><br />
+        <div class="merchant_stats">
+          <% merc_total_price = merchant.items.map(&:price).sum %>
+          <p><%= merchant.name %></p>
+          <p>Total items: <%= merchant.items.count %> </p>
+          <p>Total price of items: <%= merc_total_price %></p>
+        </div>
       <% end %>
-    </div>
+    </section>
   </body>
 </html>

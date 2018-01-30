@@ -7,6 +7,9 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <h1>Items Dashboard</h1>
+    </header>
     <nav>
       <div class="navlinks">
         <div class="dropdown">
@@ -38,11 +41,11 @@
          <input type="search" name="search" placeholder="search..">
       </div>
     </nav>
-    <div class="dashboard">
-      <h2>Total Items: <%= @items.count %> </h2>
-      <h2>Average Price of Items: <%= @items.average(:price).round(2) %> </h2>
-      <h2>Newest Item: <%= @items.last.title %> </h2>
-      <h2>Oldest Item: <%= @items.first.title %> </h2>
-    </div>
+    <section class="show">
+      <p>Total Items: <%= @items.count %> </p>
+      <p>Average Price of Items: <%= @items.average(:price).round(2) %> </p>
+      <p>Newest Item: <%= @items.last.title %> </p>
+      <p>Oldest Item: <%= @items.first.title %> </p>
+    </section>
   </body>
 </html>

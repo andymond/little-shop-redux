@@ -41,13 +41,15 @@
          <input type="search" name="search" placeholder="search..">
       </div>
     </nav>
-    <p>Average Price of Item by Category:</p>
+    <section class="show">
+      <p>Average Price of Item by Category:</p>
         <% @categories.each do |category| %>
          <p> <%= category.name %>: $<%= '%.2f' % (category.avg_price/100.0) %></p>
         <% end %>
-    <p>Category with Most Expensive Item:</p>
-      <%= @items.find_by(price: @items.maximum(:price)).category.name%>
-    <p>Category with Least Expensive Item:</p>
-      <%= @items.find_by(price: @items.minimum(:price)).category.name%>
+      <p>Category with Most Expensive Item:</p>
+        <%= @items.find_by(price: @items.maximum(:price)).category.name%>
+      <p>Category with Least Expensive Item:</p>
+        <%= @items.find_by(price: @items.minimum(:price)).category.name%>
+    </section>
   </body>
 </html>
