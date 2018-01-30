@@ -6,10 +6,7 @@ describe "a user navigates to merchants index page" do
       Merchant.create(name: 'Mabel Pines')
       Merchant.create(name: 'Bill Cipher')
       visit '/merchants'
-
-      within("#merchant4") do
-        click_on 'delete'
-      end
+      find(".marketplace").find("form#merchant4").click_on "Delete"
 
       expect(page.status_code).to eq(200)
       expect(page).to_not have_content("Bill Cipher")

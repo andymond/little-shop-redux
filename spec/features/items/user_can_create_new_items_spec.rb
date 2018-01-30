@@ -11,6 +11,7 @@ describe "a user navigates to the items create page" do
       find('#merchant_select').find(:xpath, '//*[@id="ChimeraDealer"]').click
       click_on "Submit"
 
+      expect(current_path).to eq('/items')
       expect(page).to have_content("Grizzlycorn")
       expect(page).to have_content("It's the unholy merging of a grizzly bear and a unicorn!")
     end

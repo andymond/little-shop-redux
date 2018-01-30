@@ -26,15 +26,14 @@ describe "a user can see the stats of merchants" do
                   image: 'something.jpg')
       visit '/merchants-dashboard'
 
-
       expect(page).to have_content('Merchant with the most items: Gruncle Stan')
       expect(page).to have_content('Merchant with the highest priced item: Gruncle Stan')
-      expect(page).to have_content("Gruncle Stan total items: 2")
-      expect(page).to have_content("Gruncle Stan total price of items: 520000")
-      expect(page).to have_content("Dinglemime total price of items: 200000")
-      expect(page).to have_content("Dinglemime total items: 1")
-      expect(page).to have_content("Bojangles total items: 1")
-      expect(page).to have_content("Bojangles total price of items: 200")
+      expect(page).to have_content("Gruncle Stan\n Total items: 2")
+      expect(page).to have_content("Total price of items: 520000")
+      expect(page).to have_content("Dinglemime\n Total items: 1")
+      expect(page).to have_content("Total price of items: 200000")
+      expect(page).to have_content("Bojangles\n Total items: 1")
+      expect(page).to have_content("Total price of items: 200")
     end
   end
 end
