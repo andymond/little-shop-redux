@@ -7,9 +7,37 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <a href="/items">All Items</a>
-    <a href="/merchants">All Merchants</a>
-
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
+    </nav>
     <div class="dashboard">
       <h2>Total Items: <%= @items.count %> </h2>
       <h2>Average Price of Items: <%= @items.average(:price).round(2) %> </h2>

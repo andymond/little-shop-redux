@@ -8,16 +8,45 @@
   </head>
   <body>
     <header>
-      <h3>New Category</h3>  
+      <h3>New Category</h3>
     </header>
     <nav>
-      <a href="/merchants">Merchants</a>
-      <a href="/items/new">Create New Item</a>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
     </nav>
-    <form action='/categories' method='POST'>
-      <h4>Enter information for a new merchant:</h4>
-      <input type='text' name='category[name]' placeholder='Name'/><br/>
-      <input type='submit' value='Submit'/>
-    </form>
+    <section class="show">
+      <form action='/categories' method='POST'>
+        <h4>Enter information for a new merchant:</h4>
+        <input type='text' name='category[name]' placeholder='Name'/><br/>
+        <input class="buttons" type='submit' value='Submit'/>
+      </form>
+    </section>
   </body>
 </html>

@@ -8,13 +8,43 @@
   </head>
   <body>
     <h3> Edit <%= @item.title %> </h3>
-
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
+    </nav>
     <form action="/items/<%= @item.id %>" method=post>
       <input type='hidden' name='_method' value='PUT' />
       <label for="item_name">Edit Item Information:</label></br>
-      <input type='text' name='item[title]' id="item_title" placeholder="<%= @item.title %>"/></br></br>
-      <textarea name='item[description]' id="item_description" placeholder="<%= @item.description %>"></textarea></br></br>
-      <input type='number' name='item[price]' id="item_price" placeholder="<%= @item.price %>"/></br></br>
+      <input type='text' name='item[title]' id="item_title" placeholder="Item Name: <%= @item.title %>"/></br></br>
+      <textarea name='item[description]' id="item_description" placeholder="Description: <%= @item.description %>"></textarea></br></br>
+      <input type='number' name='item[price]' id="item_price" placeholder="Price: <%= @item.price %>"/></br></br>
       <input type='text' name='item[image]' id="item_title" placeholder="Image URL"/></br></br>
       <input class='buttons' type='submit' value='Submit'/>
     </form>

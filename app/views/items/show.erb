@@ -7,14 +7,56 @@
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <h1> <%= @item.title %> </h1>
-    <img src=<%= @item.image %>>
-    <li><%= @item.price %></li>
-    <li><%= @item.description %></li>
-    <a class='buttons' href="/items/<%= @item.id  %>/edit">Edit</a>
-    <form action="/items/<%= @item.id %>" method="POST" id="item<%= @item.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input class='buttons' type="submit" value="delete"/>
-    </form>
+    <header>
+      <h1>Items</h1>
+    </header>
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+         <input type="search" name="search" placeholder="search..">
+      </div>
+    </nav>
+    <h1 class="itemname"> <%= @item.title %> </h1>
+    <section class="show">
+      <img class="itemimage" src=<%= @item.image %>>
+      <p class="price">$<%='%.2f' % (@item.price/100.0) %></p>
+      <p class="showdesc"><%= @item.description %></p>
+      <div class="modify">
+        <a class='buttons' href="/items/<%= @item.id  %>/edit">Edit</a>
+        <form action="/items/<%= @item.id %>" method="POST" id="item<%= @item.id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <input class='buttons' type="submit" value="delete"/>
+        </form>
+      </div>
+      <footer class="back">
+        <a href="/items">Back to Item Inventory</a>
+      </footer>
+    </section>
+
   </body>
 </html>

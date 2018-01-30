@@ -41,11 +41,20 @@ a:hover {
   display: block;
 }
 
-input {
+input{
   font-family: 'Press Start 2P', cursive;
   padding: 10px;
   margin: 10px;
   border: none;
+}
+
+textarea{
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  overflow: scroll;
+  height: 100px;
 }
 
 select {
@@ -128,6 +137,15 @@ input[type=submit]{
    color: magenta;
 }
 
+.showdesc {
+  margin: 15px auto;
+  text-align: left;
+  line-height: 24px;
+  color: white;
+  font-size: 14px;
+  width: 85%;
+}
+
 .price {
   margin: 5px;
 }
@@ -191,4 +209,12 @@ nav button {
 
 .dropdown-content a:hover {
     background-color: #ddd;
+}
+
+.back {
+  margin: 80px auto;
+}
+
+.show {
+  padding: 30px;
 }
