@@ -9,7 +9,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants' do
-    @merchants = Merchant.order("lower(name)").paginate(:page => params[:page])
+    @merchants = Merchant.abc_order.paginate(:page => params[:page])
     erb :"merchants/index"
   end
 
