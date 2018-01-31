@@ -42,17 +42,15 @@
       </div>
     </nav>
     <section class="show">
-      <% merchant = @items.group(:merchant_id).order('count(*)DESC').pluck(:merchant_id).first %>
-      <p>Merchant with the most items: <%= @merchants.find_by(id: merchant).name %></p>
-      <p>Merchant with the highest priced item: <%= @items.find_by(price: (@items.maximum(:price))).merchant.name %></p>
+      <p>Merchant with the most items: <%= @merchants.merchant_with_most_items.name %></p>
+      <p>Merchant with the highest priced item: <%= @merchants.merchant_with_highest_priced_item.name %></p>
     </section>
     <section class="marketplace">
       <% @merchants.each do |merchant| %>
         <div class="merchant_stats">
-          <% merc_total_price = merchant.items.map(&:price).sum %>
           <p><%= merchant.name %></p>
-          <p>Total items: <%= merchant.items.count %> </p>
-          <p>Total price of items: <%= merc_total_price %></p>
+          <p>Total items: <%= merchant.total_items %> </p>
+          <p>Total price of items: <%= merchant.total_items_price %></p>
         </div>
       <% end %>
     </section>
