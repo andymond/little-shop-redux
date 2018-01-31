@@ -56,8 +56,10 @@
         <% end %>
       ]);
       var options = {
+        width: 800,
+        height: 400,
         title: 'Top Ten Merchants by Item Count',
-        chartArea: { width: '65%', height: '45%' },
+        chartArea: { width: '50%', height: '50%' },
         hAxis: {
           title: 'Total Items',
           minValue: 0
@@ -71,11 +73,11 @@
       chart.draw(data, options);
       }
     </script>
-    <div id="chart_div"></div>
     <section class="show">
       <p>Merchant with the most items: <%= @merchants.merchant_with_most_items.first.name %></p>
       <p>Merchant with the highest priced item: <%= @merchants.merchant_with_highest_priced_item.name %></p>
     </section>
+    <div id="chart_div"></div>
     <section class="marketplace">
       <% @merchants.each do |merchant| %>
         <div class="merchant_stats">
