@@ -7,6 +7,7 @@ describe "as a user I can see a single category" do
       visit "categories/#{category_2.id}"
 
       expect(page).to have_content(category_2.name)
+      expect(page).to have_content("Food")
     end
   end
 end
