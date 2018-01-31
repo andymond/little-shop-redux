@@ -38,10 +38,13 @@
       </div>
       </div>
       <div class="search_bar">
-         <input type="search" name="search" placeholder="search..">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </nav>
-    <form action="/merchants/<%= @merchant.id %>" method=post>
+    <form class='merchant_edit' action="/merchants/<%= @merchant.id %>" method=post>
       <input type='hidden' name='_method' value='PUT' />
       <label for="merchant_name">Enter a new merchant name:</label></br>
       <input type='text' name='merchant[name]' id="merchant_name" placeholder='<% @merchant.name %>'/></br></br>

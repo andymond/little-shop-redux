@@ -38,10 +38,13 @@
       </div>
       </div>
       <div class="search_bar">
-         <input type="search" name="search" placeholder="search..">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </nav>
-    <form action="/categories/<%= @category.id %>" method=post>
+    <form class="category_edit" action="/categories/<%= @category.id %>" method=post>
       <input type='hidden' name='_method' value='PUT' />
       <label for="category_name">Enter a new category name:</label></br>
       <input type='text' name="category[name]" id="category_name" placeholder="New Category Name"/>

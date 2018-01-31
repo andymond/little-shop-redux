@@ -5,7 +5,7 @@ describe "user can edit a category" do
 
       visit "/categories/#{category.id}/edit"
       fill_in "category[name]",	with: "Supplies"
-      click_on "Submit"
+      find("form.category_edit").click_on "Submit"
 
       expect(page).to have_content("Supplies")
     end

@@ -38,7 +38,10 @@
       </div>
       </div>
       <div class="search_bar">
-         <input type="search" name="search" placeholder="search..">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </nav>
     <h1 class="itemname"> <%= @item.title %> </h1>
@@ -57,6 +60,5 @@
         <a href="/items">Back to Item Inventory</a>
       </footer>
     </section>
-
   </body>
 </html>

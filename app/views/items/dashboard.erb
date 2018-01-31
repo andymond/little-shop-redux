@@ -38,14 +38,17 @@
       </div>
       </div>
       <div class="search_bar">
-         <input type="search" name="search" placeholder="search..">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </nav>
     <section class="show">
       <p>Total Items: <%= @items.count %> </p>
-      <p>Average Price of Items: <%= @items.average(:price).round(2) %> </p>
-      <p>Newest Item: <%= @items.last.title %> </p>
-      <p>Oldest Item: <%= @items.first.title %> </p>
+      <p>Average Price of Items: <%= @items.average_price %> </p>
+      <p>Newest Item: <%= @items.newest_item %> </p>
+      <p>Oldest Item: <%= @items.oldest_item %> </p>
     </section>
   </body>
 </html>
