@@ -6,6 +6,8 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'will_paginate', '~> 3.0'
 gem 'pry'
+gem 'rake'
+gem "figaro"
 
 group :development, :test do
   gem 'shotgun'

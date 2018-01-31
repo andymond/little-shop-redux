@@ -1,2 +1,5 @@
 db/csv/*.csv
 tmp
+
+# Ignore application configuration
+/config/application.yml

@@ -260,3 +260,17 @@ section.categoryplace {
   width: 50%;
   height: 200%;
 }
+
+.merchantsitems {
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.merchantitem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

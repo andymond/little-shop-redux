@@ -46,11 +46,21 @@
       </div>
     </nav>
     <section class="show">
+      <h2>This merchant has <%= @merchant.total_items %> items</h2>
+      <div class="merchantsitems">
+        <% @merchant.items.each do |item| %>
+        <div class="merchantitem">
+          <p><%= item.title %></p>
+          <img class="itemimage" src="<%= item.image %>">
+        </div>
+        <% end %>
+      </div>
       <div class="modify">
-        <a class="buttons" href="/merchants/<%= @merchant.id  %>/edit">Edit</a>
+        <a class="buttons" href="/merchants/<%= @merchant.id  %>/edit">Edit Merchant</a>
+
         <form action="/merchants/<%= @merchant.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
-          <input class="buttons" type="submit" value="Delete"/>
+          <input class="buttons" type="submit" value="Delete Merchant"/>
         </form>
       </div>
       <footer class="back">
