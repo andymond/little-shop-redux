@@ -12,8 +12,7 @@ describe "user navigates to Category Dashboard" do
 
     visit "/categories-dashboard"
 
-    expect(page).to have_content("Cool")
-    expect(page).to have_content("Rad")
-    expect(page).to have_content("Baller")
+    expect(page).to have_content("Category with Most Expensive Item:")
+    expect(page).to have_content("Category with Least Expensive Item:")
   end
 end

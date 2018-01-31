@@ -6,7 +6,7 @@ describe "user can edit merchant" do
       visit "/merchants/#{merchant.id}/edit"
       fill_in "merchant[name]", with: "GuitarPpl"
 
-      find("form.merchant_edit").click_on "Submit"
+      click_on "Update"
 
       expect(page).to have_content("GuitarPpl")
     end

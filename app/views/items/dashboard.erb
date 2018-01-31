@@ -45,10 +45,40 @@
       </div>
     </nav>
     <section class="show">
+      <p>Average Price of Items: <%= @items.average(:price).round(2) %> </p>
+      <div id="chart_div"></div>
       <p>Total Items: <%= @items.count %> </p>
-      <p>Average Price of Items: <%= @items.average_price %> </p>
-      <p>Newest Item: <%= @items.newest_item %> </p>
-      <p>Oldest Item: <%= @items.oldest_item %> </p>
+      <p>Newest Item: <%= @items.last.title %> </p>
+      <p>Oldest Item: <%= @items.first.title %> </p>
+
     </section>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', { packages: ['corechart', 'bar'] });
+      google.charts.setOnLoadCallback(drawBasic);
+      function drawBasic() {
+        var data = google.visualization.arrayToDataTable([
+          ['Item', 'Dollars',],
+          ['Item', <%= @items.average(:price).round(2) %>]
+        ]);
+
+        var options = {
+          title: 'Average Price of Items',
+          chartArea: { width: '65%', height: '45%' },
+          hAxis: {
+            title: 'Total Dollars',
+            minValue: 0
+          },
+          vAxis: {
+            title: ''
+          }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
   </body>
 </html>

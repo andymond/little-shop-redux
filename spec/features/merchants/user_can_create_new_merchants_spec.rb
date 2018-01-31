@@ -4,14 +4,17 @@ describe "a user navigates to the merchants creation page" do
       visit '/merchants/new'
 
       fill_in "merchant[name]", with: 'Waddles'
-      find("section.show").click_on "Submit"
+
+      click_on "Create"
+
 
       expect(page).to have_content("Waddles")
 
       visit '/merchants/new'
 
       fill_in "merchant[name]", with: "Soos Ramirez"
-      find('section.show').click_on "Submit"
+
+      click_on "Create"
 
       expect(page).to have_content("Waddles")
       expect(page).to have_content("Soos Ramirez")

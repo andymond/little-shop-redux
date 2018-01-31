@@ -112,6 +112,11 @@ class LittleShopApp < Sinatra::Base
     erb :"/categories/new"
   end
 
+  delete '/categories/:id' do
+    Category.find(params[:id]).destroy
+    redirect '/categories'
+  end
+
   post '/categories' do
     Category.create(params[:category])
     redirect '/categories'

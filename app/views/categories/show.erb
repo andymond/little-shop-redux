@@ -47,7 +47,7 @@
     <section class="marketinventory">
       <% @items.each do |item| %>
         <div class="item">
-          <a href="/items/<%= item.id %>" class="itemname"><%= item.title %></a>
+          <a href="/items/<%= item.id %>" class="itemtitle"><%= item.title %></a>
           <img class="itemimage" src=<%= item.image %>>
           <p class="description"><%= item.description %></p>
           <p class="price">$<%='%.2f' % (item.price/100.0) %></p>
