@@ -10,4 +10,8 @@ test:
 
 production:
   adapter: postgresql
-  database: <%= ENV['DATABASE_URL'] %>
+  encoding: unicode
+  database: little-shop-production
+  pool: 2
+  username: little_shop
+  password: <%= ENV['LITTLE_SHOP_DATABASE_PASSWORD'] %>
