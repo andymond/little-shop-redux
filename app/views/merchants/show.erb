@@ -48,7 +48,7 @@
     <section class="show">
       <div class="modify">
         <a class="buttons" href="/merchants/<%= @merchant.id  %>/edit">Edit</a>
-        <form action="/merchant/<%= @merchant.id %>" method="POST">
+        <form action="/merchants/<%= @merchant.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <input class="buttons" type="submit" value="Delete"/>
         </form>
