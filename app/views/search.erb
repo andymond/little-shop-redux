@@ -1,24 +1,131 @@
-<% if @query == nil %>
-  <h3>Please enter search criteria</h3>
-<% else %>
-  <% if @categories.any? %>
-    <h3>Categories</h3>
-    <% @categories.each do |category| %>
-      <%= category.name %>,
-    <% end %><br>
-  <% end %>
-
-  <% if @merchants.any?  %>
-    <h3>Merchants</h3>
-    <% @merchants.each do |merchant| %>
-      <%= merchant.name %>,
-    <% end %><br>
-  <% end %>
-
-  <% if @items.any? %>
-    <h3>Items</h3>
-    <% @items.each do |item| %>
-      <%= item.title %>,
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Search Results</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Items</h1>
+    </header>
+    <nav>
+      <div class="navlinks">
+        <div class="dropdown">
+          <button name="Merchants">Merchants</button>
+            <div class="dropdown-content">
+              <a href="/merchants">Marketplace</a>
+              <a href="/merchants/new">Create New Merchant</a>
+              <a href="/merchants-dashboard">Merchants Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Items">Items</button>
+            <div class="dropdown-content">
+              <a href="/items">Inventory</a>
+              <a href="/items/new">Create New Item</a>
+              <a href="/items-dashboard">Items Dashboard</a>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button name="Categories">Categories</button>
+            <div class="dropdown-content">
+              <a href="/categories">Browse By Category</a>
+              <a href="/categories/new">Create New Category</a>
+              <a href="/categories-dashboard">Categories Dashboard</a>
+            </div>
+      </div>
+      </div>
+      <div class="search_bar">
+       <form action="/search" method="GET">
+         <input type="text" placeholder="Search.." name="q">
+         <button type="submit">Submit</button>
+       </form>
+     </div>
+    </nav>
+    <% if @query == nil %>
+      <h3>Please enter search criteria</h3>
+    <% else %>
+      <% if @categories.any? %>
+      <h3>Categories</h3>
+      <section class="categoryplace">
+          <% @categories.each do |category| %>
+          <div class="category">
+            <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
+            <div class="modify">
+              <a class="buttons" href="/categories/<%= category.id  %>/edit">Edit</a>
+              <form action="/categories/<%= category.id %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input class="buttons" type="submit" value="Delete">
+              </form>
+            </div>
+          </div>
+          <% end %>
+      </section><br>
+      <% end %>
+      <% if @merchants.any?  %>
+      <h3>Merchants</h3>
+        <div class="marketplace">
+          <% @merchants.each do |merchant| %>
+            <div class="merchant">
+              <a href="merchants/<%= merchant.id %>"><%= merchant.name %></a>
+              <img class="merchant_avatar" src="https://img00.deviantart.net/9d3d/i/2012/232/1/c/old_man_ver_2_by_dragonpjb-d5bti2i.png">
+              <div class="modify">
+                <a class='buttons' href="/merchants/<%= merchant.id  %>/edit">Edit</a>
+                <form action="/merchants/<%= merchant.id %>" method="POST" id="merchant<%= merchant.id %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input class='buttons' type="submit" value="Delete"/>
+                </form>
+              </div>
+            </div>
+          <% end %><br>
+        </div>
+      <% end %>
+      <div class="pagination" id='merchant-pagination'>
+        <div class="digg-pagination">
+          <div class="page-info">
+            <%= page_entries_info @merchants %>
+          </div>
+          <div class="pagination-numbers">
+            <%= will_paginate @merchants, :container => false %>
+          </div>
+        </div>
+      </div>
+      <% if @items.any? %>
+      <h3>Items</h3>
+      <div class='marketinventory'>
+        <% @items.each do |item| %>
+          <div class="item">
+            <a href="/items/<%= item.id %>" class="itemname"><%= item.title %></a>
+            <img class="itemimage" src=<%= item.image %>>
+            <p class="description"><%= item.description %></p>
+            <p class="price">$<%='%.2f' % (item.price/100.0) %></p>
+            <div class="modify">
+              <a class='buttons' href="/items/<%= item.id  %>/edit">Edit</a>
+              <form action="/items/<%= item.id %>" method="POST" id="item<%=item.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <input class='buttons' type="submit" value="delete"/>
+              </form>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+    <div class="pagination">
+      <div class="digg-pagination">
+        <div class="page-info">
+          <%= page_entries_info @items %>
+        </div>
+        <div class="pagination-numbers">
+          <%= will_paginate @items, :container => false %>
+        </div>
+      </div>
+    </div>
+    <footer class="back">
+      <a href="/items">Back to Item Inventory</a>
+      <a href="/merchants">Back to Merchants</a>
+    </footer>
+  </body>
+</html>

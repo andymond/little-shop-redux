@@ -5,7 +5,7 @@ describe "user can create a category" do
       visit "/categories/new"
 
       fill_in "category[name]",	with: "Toys"
-      click_on "Submit"
+      find("section.show").click_on "Submit"
 
       expect(page).to have_content("Toys")
       expect(current_path).to eq("/categories")

@@ -9,7 +9,7 @@ describe "a user navigates to the items create page" do
       fill_in "item[price]", with: 500_000
       fill_in "item[image]", with: 'https://ih1.redbubble.net/image.11311357.5033/flat,800x800,075,f.jpg'
       find('#merchant_select').find(:xpath, '//*[@id="ChimeraDealer"]').click
-      click_on "Submit"
+      find("section.show").click_on "Submit"
 
       expect(current_path).to eq('/items')
       expect(page).to have_content("Grizzlycorn")
