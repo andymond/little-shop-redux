@@ -50,7 +50,8 @@
       <div class="merchantsitems">
         <% @merchant.items.each do |item| %>
         <div class="merchantitem">
-          <%= item.title %>
+          <p><%= item.title %></p>
+          <img class="itemimage" src="<%= item.image %>">
         </div>
         <% end %>
       </div>
