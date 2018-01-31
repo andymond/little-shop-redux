@@ -146,6 +146,7 @@ input[type=submit]{
 .description {
   height: 70px;
   overflow: scroll;
+  overflow: hidden;
   font-size: 10px;
   color: white;
 }
@@ -176,7 +177,7 @@ nav {
   background-color: gray;
   opacity: 0.8;
   width: 100%;
-  min-width: 885px;
+  min-width: 753px;
 }
 
 .navlinks {
@@ -184,7 +185,7 @@ nav {
 }
 
 .search_bar {
-  margin: 0px 5px 0px 5px;
+  margin: 0px 5px 0px auto;
 }
 
 nav button {
@@ -241,6 +242,11 @@ nav button {
     justify-content: space-between;
     width: 60%;
     padding: 30px;
+}
+
+section.categoryplace {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .not_found {

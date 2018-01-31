@@ -42,7 +42,7 @@
         </form>
       </div>
     </nav>
-    <form action="/items/<%= @item.id %>" method=post>
+    <form class="item_edit" action="/items/<%= @item.id %>" method=post>
       <input type='hidden' name='_method' value='PUT' />
       <label for="item_name">Edit Item Information:</label></br>
       <input type='text' name='item[title]' id="item_title" placeholder="Item Name: <%= @item.title %>"/></br></br>

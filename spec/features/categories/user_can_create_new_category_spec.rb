@@ -5,6 +5,7 @@ describe "user can create a category" do
       visit "/categories/new"
 
       fill_in "category[name]",	with: "Toys"
+      
       click_on "Create"
 
       expect(page).to have_content("Toys")

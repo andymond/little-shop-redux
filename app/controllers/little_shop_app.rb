@@ -29,7 +29,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants' do
-    @merchants = Merchant.order("lower(name)").paginate(:page => params[:page])
+    @merchants = Merchant.abc_order.paginate(:page => params[:page])
     erb :"merchants/index"
   end
 
@@ -63,7 +63,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items' do
-    @items = Item.order("lower(title)").paginate(:page => params[:page])
+    @items = Item.abc_order.paginate(:page => params[:page])
     erb :"items/index"
   end
 
@@ -160,8 +160,8 @@ class LittleShopApp < Sinatra::Base
                ]
 
       @categories = @query[0]
-      @merchants = @query[1]
-      @items = @query[2]
+      @merchants = @query[1].paginate(:page => params[:page], :per_page => 15)
+      @items = @query[2].paginate(:page => params[:page], :per_page => 15)
     end
     erb :"/search"
   end
