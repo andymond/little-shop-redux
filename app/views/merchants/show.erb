@@ -50,7 +50,7 @@
       <div class="merchantsitems">
         <% @merchant.items.each do |item| %>
         <div class="merchantitem">
-          <p><%= item.title %></p>
+          <a href="/items/<%= item.id %> "><%= item.title %></a>
           <img class="itemimage" src="<%= item.image %>">
         </div>
         <% end %>
