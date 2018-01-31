@@ -5,11 +5,40 @@
     <title>Merchants Dashboard</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   </head>
-  <header>
-    <h1>Merchant Dashboard</h1>
-  </header>
   <body>
+    <header>
+      <h1>Merchant Dashboard</h1>
+    </header>
+    <script type="text/javascript">
+  // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Merchant');
+        data.addColumn('number', 'Total Items');
+        data.addRows([
+          <% @merchants.each do |merchant| %>
+            ['<%= merchant.name %>', <%= merchant.total_items %>],
+          <% end %>
+        ]);
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300};
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
     <nav>
       <div class="navlinks">
         <div class="dropdown">
@@ -38,10 +67,7 @@
       </div>
       </div>
       <div class="search_bar">
-        <form action="/search" method="GET">
-          <input type="text" placeholder="Search.." name="q">
-          <button type="submit">Submit</button>
-        </form>
+         <input type="search" name="search" placeholder="search..">
       </div>
     </nav>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -81,9 +107,10 @@
     <section class="marketplace">
       <% @merchants.each do |merchant| %>
         <div class="merchant_stats">
+          <% merc_total_price = merchant.items.map(&:price).sum %>
           <p><%= merchant.name %></p>
-          <p>Total items: <%= merchant.total_items %> </p>
-          <p>Total price of items: <%= merchant.total_items_price %></p>
+          <p>Total items: <%= merchant.items.count %> </p>
+          <p>Total price of items: <%= merc_total_price %></p>
         </div>
       <% end %>
     </section>
