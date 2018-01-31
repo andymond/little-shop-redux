@@ -44,8 +44,31 @@
         </form>
       </div>
     </nav>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Merchants');
+        data.addColumn('number', 'Items');
+        data.addRows([
+          <% @merchants.merchant_with_most_items[0..10].each do |merchant| %>
+            ['<%=merchant.name%>', <%=merchant.total_items%>],
+          <% end %>
+        ]);
+        var options = {'title':'Top ten Merchants and their Items',
+                       'width':400,
+                       'height':400};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="chart_div"></div>
     <section class="show">
-      <p>Merchant with the most items: <%= @merchants.merchant_with_most_items.name %></p>
+      <p>Merchant with the most items: <%= @merchants.merchant_with_most_items.first.name %></p>
       <p>Merchant with the highest priced item: <%= @merchants.merchant_with_highest_priced_item.name %></p>
     </section>
     <section class="marketplace">
