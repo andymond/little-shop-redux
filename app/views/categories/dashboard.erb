@@ -59,7 +59,7 @@
       function drawBasic() {
         var data = google.visualization.arrayToDataTable([
           ['Category', 'Dollars',],
-          <% @categories.map do |category| %>
+          <% @categories.each do |category| %>
             ['<%= category.name %>', <%= '%.2f' % (category.avg_price/100.0) %>],
           <% end %>
         ]);
