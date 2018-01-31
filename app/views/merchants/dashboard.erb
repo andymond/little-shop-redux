@@ -44,10 +44,40 @@
         </form>
       </div>
     </nav>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { packages: ['corechart', 'bar'] });
+      google.charts.setOnLoadCallback(drawBasic);
+      function drawBasic() {
+          var data = google.visualization.arrayToDataTable([
+        ['Merchants', 'Items Count'],
+        <% @merchants.merchant_with_most_items[0..10].each do |merchant| %>
+          ['<%=merchant.name%>', <%=merchant.total_items%>],
+        <% end %>
+      ]);
+      var options = {
+        width: 800,
+        height: 400,
+        title: 'Top Ten Merchants by Item Count',
+        chartArea: { width: '50%', height: '50%' },
+        hAxis: {
+          title: 'Total Items',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Merchants'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+      }
+    </script>
     <section class="show">
-      <p>Merchant with the most items: <%= @merchants.merchant_with_most_items.name %></p>
+      <p>Merchant with the most items: <%= @merchants.merchant_with_most_items.first.name %></p>
       <p>Merchant with the highest priced item: <%= @merchants.merchant_with_highest_priced_item.name %></p>
     </section>
+    <div id="chart_div"></div>
     <section class="marketplace">
       <% @merchants.each do |merchant| %>
         <div class="merchant_stats">

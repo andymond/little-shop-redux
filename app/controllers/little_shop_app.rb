@@ -124,7 +124,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/categories/:id' do
       category
-	    @items = Item.order("lower(title)").where(category_id: params[:id]).paginate(:page => params[:page])
+	    @items = Item.abc_order.where(category_id: params[:id]).paginate(:page => params[:page])
 	    erb :"categories/show"
   end
 

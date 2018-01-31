@@ -13,9 +13,9 @@ class Merchant < ActiveRecord::Base
 
   def self.merchant_with_most_items
     joins(:items).select(
-      "merchants.*, count(items.id) as icount").group(
+      "merchants.*, count(items.id) as item_count").group(
         "merchants.id").order(
-          "icount DESC").first
+          "item_count DESC").limit(10)
   end
 
   def self.merchant_with_highest_priced_item

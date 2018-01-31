@@ -88,7 +88,7 @@ describe Merchant do
                   merchant_id: 3,
                   image: 'something.jpg')
 
-      expect(Merchant.all.merchant_with_most_items).to eq(gruncle)
+      expect(Merchant.all.merchant_with_most_items.first).to eq(gruncle)
     end
 
     it "returns merchant with highest item price" do
@@ -116,6 +116,6 @@ describe Merchant do
                   merchant_id: 3,
                   image: 'something.jpg')
       expect(Merchant.all.merchant_with_highest_priced_item).to eq(gruncle)
-    end 
+    end
   end
 end
