@@ -11,3 +11,4 @@ test:
 production:
   adapter: postgresql
   database: little-shop-production
+  url: <%= ENV['DATABASE_URL'] %>
