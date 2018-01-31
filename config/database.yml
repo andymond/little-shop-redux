@@ -10,5 +10,8 @@ test:
 
 production:
   adapter: postgresql
+  encoding: unicode
   database: little-shop-production
-  url: <%= ENV['DATABASE_URL'] %>
+  pool: 2
+  username: little_shop
+  password: <%= ENV['LITTLE_SHOP_DATABASE_PASSWORD'] %>
