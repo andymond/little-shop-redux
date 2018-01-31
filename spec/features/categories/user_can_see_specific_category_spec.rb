@@ -4,9 +4,9 @@ describe "as a user I can see a single category" do
       category_1 = Category.create(name: "Games")
       category_2 = Category.create(name: "Food")
 
-      visit "categories/2"
+      visit "categories/#{category_2.id}"
 
-      expect(page).to have_content("Food")
+      expect(page).to have_content(category_2.name)
     end
   end
 end

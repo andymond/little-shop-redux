@@ -4,8 +4,9 @@ describe "user can edit a category" do
       category = Category.create(name: "Toys")
 
       visit "/categories/#{category.id}/edit"
+      
       fill_in "category[name]",	with: "Supplies"
-      click_on "Submit"
+      click_on "Update"
 
       expect(page).to have_content("Supplies")
     end
