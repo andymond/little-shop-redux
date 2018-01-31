@@ -1,6 +1,7 @@
 ---
 layout: page
 ---
+## Link: [here](https://dry-retreat-32983.herokuapp.com/)
 
 # Little Shop Redux
 
@@ -135,7 +136,7 @@ You can use ActiveRecord's [validations feature](http://guides.rubyonrails.org/a
 At the end of this iteration, you should be able to view an index of all items, view a page for a single item, create an item, edit an item, and delete an item from either the index or the show pages.
 
 - When creating an item, there should be a dropdown of all merchants and a dropdown of all categories to select from.
-- You will want to utilize a default image for seeds. 
+- You will want to utilize a default image for seeds.
 - An image should be a string referencing a url to a photo.
 
 ### Iteration 6

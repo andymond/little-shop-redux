@@ -145,7 +145,7 @@ input[type=submit]{
 
 .description {
   height: 70px;
-  /* text-overflow: ellipsis; */
+  overflow: scroll;
   overflow: hidden;
   font-size: 10px;
   color: white;
@@ -247,4 +247,11 @@ nav button {
 section.categoryplace {
   display: flex;
   flex-wrap: wrap;
+}
+
+.not_found {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

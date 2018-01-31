@@ -4,6 +4,26 @@ require 'will_paginate/active_record'
 class LittleShopApp < Sinatra::Base
 	register WillPaginate::Sinatra
 
+	helpers do
+		def merchant
+			@merchant = Merchant.find(params[:id])
+			rescue ActiveRecord::RecordNotFound
+				halt(404)
+		end
+
+		def item
+			@item = Item.find(params[:id])
+			rescue ActiveRecord::RecordNotFound
+				halt(404)
+		end
+
+		def category
+			@category = Category.find(params[:id])
+			rescue ActiveRecord::RecordNotFound
+				halt(404)
+		end
+	end
+
   get '/' do
     erb :"homepage"
   end
@@ -18,12 +38,12 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants/:id' do
-    @merchant = Merchant.find(params[:id])
+    merchant
     erb :"merchants/show"
   end
 
   get '/merchants/:id/edit' do
-    @merchant = Merchant.find(params[:id])
+    merchant
     erb :"merchants/edit"
   end
 
@@ -54,12 +74,12 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/:id' do
-    @item = Item.find(params[:id])
+    item
     erb :"items/show"
   end
 
   get '/items/:id/edit' do
-    @item = Item.find(params[:id])
+    item
     erb :"items/edit"
   end
 
@@ -98,13 +118,13 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/categories/:id' do
-    @category = Category.find(params[:id])
-    @items = Item.abc_order.where(category_id: params[:id]).paginate(:page => params[:page])
-    erb :"categories/show"
+      category
+	    @items = Item.order("lower(title)").where(category_id: params[:id]).paginate(:page => params[:page])
+	    erb :"categories/show"
   end
 
   get '/categories/:id/edit' do
-    @category = Category.find(params[:id])
+    category
     erb :"categories/edit"
   end
 
@@ -139,6 +159,11 @@ class LittleShopApp < Sinatra::Base
       @items = @query[2].paginate(:page => params[:page], :per_page => 15)
     end
     erb :"/search"
+  end
+
+	not_found do
+	  status 404
+	  erb :not_found
   end
 
 end

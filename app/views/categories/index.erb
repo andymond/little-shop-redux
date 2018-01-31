@@ -38,7 +38,10 @@
       </div>
       </div>
       <div class="search_bar">
-         <input type="search" name="search" placeholder="search..">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </nav>
     <section>
@@ -47,7 +50,7 @@
         <h3><a href="/categories/<%= category.id %>"><%= category.name %></a></h3>
         <div class="modify">
           <a class="buttons" href="/categories/<%= category.id  %>/edit">Edit</a>
-          <form action="/categories/<%= category.id %>" method="POST">
+          <form action="/categories/<%= category.id %>" method="POST" id="category<%= category.id %>">
             <input type="hidden" name="_method" value="DELETE">
             <input class="buttons" type="submit" value="Delete"/>
           </form>

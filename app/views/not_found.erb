@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Edit Merchants</title>
+    <title>404 Not Found</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="/stylesheets/main.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1> Edit <%= @merchant.name %></h1>
+      <h3>Nothing Here!</h3>
     </header>
     <nav>
       <div class="navlinks">
@@ -44,11 +44,8 @@
         </form>
       </div>
     </nav>
-    <form action="/merchants/<%= @merchant.id %>" method=post>
-      <input type='hidden' name='_method' value='PUT' />
-      <label for="merchant_name">Enter a new merchant name:</label></br>
-      <input type='text' name='merchant[name]' id="merchant_name" placeholder='<% @merchant.name %>'/></br></br>
-      <input class='buttons' type='submit' value='Submit'/>
-    </form>
+    <section class="not_found">
+      <img src="https://media.giphy.com/media/FGQumznHZxxV6/giphy.gif">
+    </section>
   </body>
 </html>
