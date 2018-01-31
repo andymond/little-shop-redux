@@ -12,8 +12,8 @@ describe "a user navigates to items edit page" do
       fill_in "item[description]", with: "A Face that looks like a rock!!"
       fill_in "item[price]", with: 300_000
       fill_in "item[image]", with: "https://vignette.wikia.nocookie.net/gravityfalls/images/d/d5/Pilot_The_Sascrotch.png/revision/latest?cb=20160803222628"
-      click_on "Submit"
-      
+      click_on "Update"
+
       expect(page).to have_content("Different Face Rock")
       expect(page).to have_content("A Face that looks like a rock!!")
       expect(page).to have_content("$3000.00")

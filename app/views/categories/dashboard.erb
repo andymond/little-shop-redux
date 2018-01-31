@@ -45,14 +45,42 @@
       </div>
     </nav>
     <section class="show">
-      <p>Average Price of Item by Category:</p>
-        <% @categories.each do |category| %>
-         <p> <%= category.name %>: $<%= '%.2f' % (category.avg_price/100.0) %></p>
-        <% end %>
+      <p>Average Price of Items by Category:</p>
+      <div id="chart_div"></div>
       <p>Category with Most Expensive Item:</p>
         <%= @items.find_by(price: @items.maximum(:price)).category.name%>
       <p>Category with Least Expensive Item:</p>
         <%= @items.find_by(price: @items.minimum(:price)).category.name%>
     </section>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', { packages: ['corechart', 'bar'] });
+      google.charts.setOnLoadCallback(drawBasic);
+      function drawBasic() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Dollars',],
+          <% @categories.map do |category| %>
+            ['<%= category.name %>', <%= '%.2f' % (category.avg_price/100.0) %>],
+          <% end %>
+        ]);
+
+        var options = {
+          title: 'Average Price of Item by Category',
+          chartArea: { width: '65%', height: '45%' },
+          hAxis: {
+            title: 'Total Dollars',
+            minValue: 0
+          },
+          vAxis: {
+            title: 'Category'
+          }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
   </body>
 </html>
+
+
