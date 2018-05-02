@@ -48,9 +48,9 @@
       <p>Average Price of Items by Category:</p>
       <div id="chart_div"></div>
       <p>Category with Most Expensive Item:</p>
-        <%= @items.find_by(price: @items.maximum(:price)).category.name%>
+        <%= @items.highest_priced_category%>
       <p>Category with Least Expensive Item:</p>
-        <%= @items.find_by(price: @items.minimum(:price)).category.name%>
+        <%= @items.lowest_priced_category%>
     </section>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
@@ -60,7 +60,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Category', 'Dollars',],
           <% @categories.each do |category| %>
-            ['<%= category.name %>', <%= '%.2f' % (category.avg_price/100.0) %>],
+            ['<%= category.name %>', <%= '%.2f' % (category.avg_price) %>],
           <% end %>
         ]);
 
