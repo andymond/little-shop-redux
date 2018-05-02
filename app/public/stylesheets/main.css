@@ -9,8 +9,8 @@ body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
-  background-color: black;
-  color: lime;
+  background-image: url('/grass_background.png');
+  color: black;
 }
 
 header {
@@ -36,7 +36,7 @@ div {
 }
 
 a {
-  color: lime;
+  color: black;
   font-size: 14px;
   text-decoration: none;
   display: block;
@@ -115,6 +115,12 @@ input[type=submit]{
   height: 250px;
   width: 250px;
   overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+  background-color: #3c963f4A;
 }
 
 .merchant_stats {
@@ -129,6 +135,13 @@ input[type=submit]{
 .item {
   height: 300px;
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+  background-color: #3c963f4A;
+
 }
 
 .itemimage {
@@ -273,4 +286,15 @@ section.categoryplace {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.category_index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.category {
+  background-color: #FFFFFF4A
 }
