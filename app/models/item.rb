@@ -16,4 +16,16 @@ class Item < ActiveRecord::Base
     order("created_at").first.title
   end
 
+  def category_name
+    category.name if category
+  end
+
+  def self.lowest_priced_category
+    find_by(price: minimum(:price)).category_name
+  end
+
+  def self.highest_priced_category
+    find_by(price: maximum(:price)).category_name
+  end
+
 end
